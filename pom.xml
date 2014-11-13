@@ -88,6 +88,17 @@
 			<version>1.10.8</version>
 			<scope>test</scope>
 		</dependency>
+		
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-impl</artifactId>
+			<version>2.2.7</version>
+		</dependency>
 	</dependencies>
 	
 	<build>
@@ -106,7 +117,7 @@
             <plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 			        <artifactId>maven-war-plugin</artifactId>
-			        <version>2.1.1</version>
+			        <version>2.4</version>
 			        <configuration>
 			        	<failOnMissingWebXml>false</failOnMissingWebXml>
 				</configuration>
@@ -117,25 +128,10 @@
 				<artifactId>jetty-maven-plugin</artifactId>
 				<version>8.1.16.v20140903</version>
 				<configuration>
-					<scanIntervalSeconds>4</scanIntervalSeconds>
+					<scanIntervalSeconds>3</scanIntervalSeconds>
 					<webApp>
 						<contextPath>/reference</contextPath>
 					</webApp>
-				</configuration>
-			</plugin>
-            
-            <plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-			        <artifactId>maven-site-plugin</artifactId>
-			        <version>3.0</version>
-			        <configuration>
-			        	<reportPlugins>
-			                	<plugin>
-			                            <groupId>org.codehaus.mojo</groupId>
-			                            <artifactId>cobertura-maven-plugin</artifactId>
-			                            <version>2.5.1</version>
-			                        </plugin>
-					</reportPlugins>
 				</configuration>
 			</plugin>
 		</plugins>
