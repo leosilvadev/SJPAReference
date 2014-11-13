@@ -29,10 +29,10 @@ public class ApplicationInitializer implements WebApplicationInitializer {
         dispatcher.addMapping(DISPATCHER_SERVLET_MAPPING);
 
         OpenEntityManagerInViewFilter openEntityManagerInViewFilter = new OpenEntityManagerInViewFilter();
-		openEntityManagerInViewFilter.setEntityManagerFactoryBeanName("entityManagerFactoryBean");
+		openEntityManagerInViewFilter.setEntityManagerFactoryBeanName("entityManagerFactory");
 		
 		Dynamic dynamic = servletContext.addFilter("openEntityManagerInViewFilter", openEntityManagerInViewFilter);
-		dynamic.addMappingForUrlPatterns(getDispatcherTypes(), false, "/");
+		dynamic.addMappingForUrlPatterns(getDispatcherTypes(), false, DISPATCHER_SERVLET_MAPPING);
         
 		servletContext.addListener(new ContextLoaderListener(webAppContext));
 	}
