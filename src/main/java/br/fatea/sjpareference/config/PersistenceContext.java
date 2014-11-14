@@ -28,10 +28,6 @@ public class PersistenceContext {
     private static final String PROPERTY_NAME_DATABASE_PASSWORD = "db.password";
     private static final String PROPERTY_NAME_DATABASE_URL = "db.url";
     private static final String PROPERTY_NAME_DATABASE_USERNAME = "db.username";
-//    private static final String PROPERTY_NAME_ACQUIRE_INCREMENT = "db.acquire_increment";
-//    private static final String PROPERTY_NAME_MIN_POOL_SIZE = "db.min_pool_size";
-//    private static final String PROPERTY_NAME_MAX_POOL_SIZE = "db.max_pool_size";
-//    private static final String PROPERTY_NAME_MAX_IDLE_TIME = "db.max_idle_time";
     
     private static final String PROPERTY_NAME_HIBERNATE_DIALECT = "hibernate.dialect";
     private static final String PROPERTY_NAME_HIBERNATE_FORMAT_SQL = "hibernate.format_sql";
@@ -40,8 +36,7 @@ public class PersistenceContext {
     private static final String PROPERTY_NAME_ENTITYMANAGER_PACKAGES_TO_SCAN = "entitymanager.packages.to.scan";
     private static final String PROPERTY_NAME_HIBERNATE_HBM2DDL = "hibernate.hbm2ddl.auto";
     
-    @Resource
-    private Environment environment;
+    @Resource private Environment environment;
  
     @Bean
     public DataSource dataSource() throws IllegalStateException, PropertyVetoException {
@@ -51,10 +46,6 @@ public class PersistenceContext {
         dataSource.setJdbcUrl(environment.getRequiredProperty(PROPERTY_NAME_DATABASE_URL));
         dataSource.setUser(environment.getRequiredProperty(PROPERTY_NAME_DATABASE_USERNAME));
         dataSource.setPassword(environment.getRequiredProperty(PROPERTY_NAME_DATABASE_PASSWORD));
-//        dataSource.setAcquireIncrement(Integer.parseInt(environment.getRequiredProperty(PROPERTY_NAME_ACQUIRE_INCREMENT)));
-//        dataSource.setMinPoolSize(Integer.parseInt(PROPERTY_NAME_MIN_POOL_SIZE));
-//        dataSource.setMaxPoolSize(Integer.parseInt(PROPERTY_NAME_MAX_POOL_SIZE));
-//        dataSource.setMaxIdleTime(Integer.parseInt(PROPERTY_NAME_MAX_IDLE_TIME));
         
         return dataSource;
     }
